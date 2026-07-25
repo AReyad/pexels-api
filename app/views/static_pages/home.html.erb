@@ -1,0 +1,15 @@
+<%= form_with url: home_url, method: :get do |f| %>
+<div>
+  <%= f.label :collection_id, "Search a pexels collection" %>
+  <%= f.search_field :collection_id, placeholder: "ydoixw4" %>
+</div>
+<div>
+  <%= f.submit "Search" %>
+</div>
+<% end %>
+
+<% if @collection %>
+  <% @collection["media"].each do |image| %>
+  <img src="<%= image["src"]["medium"] %>" alt="<%= image["alt"] %>">
+  <% end %>
+<% end %>
